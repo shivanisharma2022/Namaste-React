@@ -19,3 +19,22 @@
 - Tree Shaking(Removes unused code for you)
 - Different bundles for development and Production
 - Developement Experience Smooth
+
+# Food Ordering App
+/**
+ * App Layout Component
+ * Header
+ * - Logo
+ * - Nav Items
+ * Body
+ * - Search
+ * - Restaurant Container
+ *   - Restaurant Card
+ *     - Image
+ *     - Name, Rating, Cuisines, Delivery Time....
+ * Footer
+ * - Copyright
+ * - Links
+ * - Address
+ * - Contact
+ */
