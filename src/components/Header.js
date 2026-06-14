@@ -1,5 +1,6 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const [btnName, setBtnName] = useState("Login");
@@ -7,26 +8,32 @@ export const Header = () => {
   return (
     <div className="header">
       <div className="logo-container">
-        <img
-          className="logo"
-          src= {LOGO_URL}
-        />
+        <img className="logo" src={LOGO_URL} />
       </div>
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
+          <li>
+            <Link to="/contact">Contact Us</Link>
+          </li>
           <li>Cart</li>
-          <button className="login-btn" onClick={() => {
-             //setBtnName(btnName === "Login" ? "Logout" : "Login");
+          <button
+            className="login-btn"
+            onClick={() => {
+              //setBtnName(btnName === "Login" ? "Logout" : "Login");
               //btnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
-            if (btnName === "Login") {
-              setBtnName("Logout");
-            } else {
-              setBtnName("Login");
-            }
-          }}>
+              if (btnName === "Login") {
+                setBtnName("Logout");
+              } else {
+                setBtnName("Login");
+              }
+            }}
+          >
             {btnName}
           </button>
         </ul>
