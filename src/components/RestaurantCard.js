@@ -15,13 +15,13 @@ const RestaurantCard = (props) => {
   } = resData?.info; // destructuring the resData.info object to get the required data for restaurant card component
 
   return (
-    <div className="restaurant-card" style={{ backgroundColor: "#f0f0f0" }}>
+    <div className="m-4 p-4 w-[300px] rounded-lg bg-gray-100 hover:bg-gray-200">
       <img
-        className="restaurant-logo"
+        className="rounded-md"
         alt="restaurant-logo"
         src={CDN_URL + cloudinaryImageId}
       />
-      <h3>{name}</h3>
+      <h3 className="font-bold py-4 text-2xl">{name}</h3>
       <h4>{cuisines.join(", ")}</h4>
       <h5>{costForTwo}</h5>
       <h5>{avgRating} Stars</h5>

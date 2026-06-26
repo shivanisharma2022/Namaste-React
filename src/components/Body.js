@@ -60,56 +60,61 @@ const Body = () => {
   }
 
   return (
-    <div className="body">
-      <div className="search">
+  <div className="body">
+    <div className="filter flex items-center m-4 p-4 gap-4">
+      <div className="search flex items-center gap-4">
         <input
           type="text"
-          className="search-box"
-          placeholder="Search for restaurants, cuisines or a dish..."
+          className="border border-solid border-black px-3 py-2"
+          placeholder="Search for restaurants....."
           value={searchText}
           onChange={(e) => setSearchText(e.target.value)}
         />
+
         <button
+          className="px-4 py-2 bg-blue-200 rounded-lg"
           onClick={() => {
-            // Filter the list of restaurants based on the search text
-            // searchText
             console.log(searchText);
 
             const filteredRestaurants = listOfRestaurants.filter((res) =>
-              res.info?.name?.toLowerCase().includes(searchText.toLowerCase()),
+              res.info?.name
+                ?.toLowerCase()
+                .includes(searchText.toLowerCase())
             );
+
             setFilteredRestaurants(filteredRestaurants);
           }}
         >
           Search
         </button>
       </div>
-      <div className="filter">
-        <button
-          className="filter-btn"
-          onClick={() => {
-            const filteredRestaurants = listOfRestaurants.filter(
-              (res) => res?.info?.avgRating > 4.2,
-            );
-            setFilteredRestaurants(filteredRestaurants);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
-      </div>
 
-      <div className="restaurant-container">
-        {filteredRestaurants.map((restaurant) => (
-          <Link
-            key={restaurant?.info?.id}
-            to={`/restaurant/${restaurant?.info?.id}`}
-          >
-            <RestaurantCard resData={restaurant} />
-          </Link>
-        ))}
-      </div>
+      <button
+        className="px-4 py-2 bg-gray-300 rounded"
+        onClick={() => {
+          const filteredRestaurants = listOfRestaurants.filter(
+            (res) => res?.info?.avgRating > 4.2
+          );
+
+          setFilteredRestaurants(filteredRestaurants);
+        }}
+      >
+        Top Rated Restaurants
+      </button>
     </div>
-  );
+
+    <div className="flex flex-wrap">
+      {filteredRestaurants.map((restaurant) => (
+        <Link
+          key={restaurant?.info?.id}
+          to={`/restaurant/${restaurant?.info?.id}`}
+        >
+          <RestaurantCard resData={restaurant} />
+        </Link>
+      ))}
+    </div>
+  </div>
+);
 };
 
 export default Body;

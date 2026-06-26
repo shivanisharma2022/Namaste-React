@@ -19,7 +19,7 @@ const User = (props) => {
   // console.log("render");
 
   return (
-    <div className="user-card">
+    <div className="user-card m-4 p-4 bg-gray-100 rounded-2xl">
       <h1>Count : {count}</h1>
       <h2>Name: {props.name}</h2>
       <h3>Location: Noida</h3>
