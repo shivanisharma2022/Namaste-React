@@ -11,14 +11,11 @@ const RestaurantMenu = () => {
 
   const restaurant = restaurantInfo?.cards?.[2]?.card?.card?.info;
 
-  const { name, avgRating, costForTwoMessage, cuisines, areaName, sla } =
-    restaurant;
+  const { name, avgRating, costForTwoMessage, cuisines, areaName, sla } = restaurant;
 
-  const menuCards =
-    restaurantInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
-  const menuItems = menuCards.flatMap(
-    (card) => card?.card?.card?.itemCards || [],
-  );
+  const menuCards = restaurantInfo?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards || [];
+
+  const menuItems = menuCards.flatMap((card) => card?.card?.card?.itemCards || []);
 
   return (
     <div className="restaurant-menu">
