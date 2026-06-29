@@ -1,5 +1,6 @@
 import User from "./User";
 //import UserClass from "./UserClass";
+//import UserContext from "../utils/UserContext";
 import React from "react";
 
 const About = () => {
@@ -7,8 +8,10 @@ const About = () => {
     <div>
       <h1>About Us</h1>
       <p>
-        Welcome to our restaurant review website! We are passionate about food and dining experiences, and we created this platform to help food lovers
-        discover the best restaurants in town. Whether you're looking for a cozy café, a fine dining experience, or a hidden gem, we've got you covered.
+        Welcome to our restaurant review website! We are passionate about food
+        and dining experiences, and we created this platform to help food lovers
+        discover the best restaurants in town. Whether you're looking for a cozy
+        café, a fine dining experience, or a hidden gem, we've got you covered.
       </p>
 
       <User name={"Shivani Sharma"} />
@@ -36,7 +39,12 @@ const About = () => {
 //           for a cozy café, a fine dining experience, or a hidden gem, we've got
 //           you covered.
 //         </p>
-
+//         <div>
+//           LoggedIn User
+//           <UserContext.Consumer>
+//             {({ loggedInUser }) => <h1 className="font-bold">{loggedInUser}</h1>}
+//           </UserContext.Consumer>
+//         </div>
 //         <UserClass name={"Shivani Sharma (class)"} location={"Noida (class)"} />
 //       </div>
 //     );
