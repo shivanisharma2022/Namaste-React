@@ -1,7 +1,9 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import { act } from "react-dom/test-utils";
 import RestaurantMenu from "../RestaurantMenu";
 import "@testing-library/jest-dom";
-import { MemoryRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+// import { MemoryRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "react-redux";
 import appStore from "../../utils/appStore";
 import MOCK_DATA from "../mocks/restaurantMenuMock.json";
@@ -15,22 +17,34 @@ global.fetch = jest.fn(() =>
 );
 
 it("Should load Restaurant Menu component", async () => {
-  render(
-    <MemoryRouter initialEntries={["/restaurant/307799"]}>
-      <Routes>
-        <Route
-          path="/restaurant/:resid"
-          element={
-            <Provider store={appStore}>
-              <Header />
-              <RestaurantMenu />
-              <Cart />
-            </Provider>
-          }
-        />
-      </Routes>
-    </MemoryRouter>,
+  await act(async () =>
+    render(
+      <BrowserRouter>
+        <Provider store={appStore}>
+          <Header />
+          <RestaurantMenu />
+          <Cart />
+        </Provider>
+      </BrowserRouter>,
+    ),
   );
+
+  // render(
+  //   <MemoryRouter initialEntries={["/restaurant/307799"]}>
+  //     <Routes>
+  //       <Route
+  //         path="/restaurant/:resid"
+  //         element={
+  //           <Provider store={appStore}>
+  //             <Header />
+  //             <RestaurantMenu />
+  //             <Cart />
+  //           </Provider>
+  //         }
+  //       />
+  //     </Routes>
+  //   </MemoryRouter>,
+  // );
 
   const accordianHeader = await screen.findByText("Recommended (5)");
 
