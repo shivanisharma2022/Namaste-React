@@ -2,3 +2,5 @@
 /dist
 .parcel-cache
 /coverage
+jest-config-output.json
+jest-verbose-output.txt

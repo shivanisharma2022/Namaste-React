@@ -5,8 +5,11 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test": "jest --coverage",
+    "test:list": "jest --listTests",
+    "test:coverage": "jest --coverage",
+    "test:coverage:open": "npm run test:coverage && start coverage/lcov-report/index.html",
+    "watch-test": "jest --watchAll --coverage --verbose"
   },
   "repository": {
     "type": "git",

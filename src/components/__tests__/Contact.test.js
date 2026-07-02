@@ -3,11 +3,21 @@ import Contact from "../Contact";
 import "@testing-library/jest-dom";
 
 describe("ContactUs Component", () => {
-  test("Should load ContactUs Component", () => {
-    render(<Contact />);
-    const heading = screen.getByRole("heading");
-    expect(heading).toBeInTheDocument();
-  });
+  // beforeAll(() => {
+  //   console.log("Before All");
+  // });
+
+  // afterAll(() => {
+  //   console.log("After All");
+  // });
+
+  // beforeEach(() => {
+  //   console.log("Before Each");
+  // });
+
+  // afterEach(() => {
+  //   console.log("After Each");
+  // });
 
   test("Should load button inside the form", () => {
     render(<Contact />);

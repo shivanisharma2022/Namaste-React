@@ -70,6 +70,7 @@ const Body = () => {
         <div className="search flex items-center gap-4">
           <input
             type="text"
+            data-testid="SearchInput"
             className="border border-solid border-black px-3 py-2"
             placeholder="Search for restaurants....."
             value={searchText}
